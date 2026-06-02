@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Kecha JKT48 - Kamus & Daftar Lagu Part Kecha Interaktif",
-  description: "Kamus digital interaktif terperinci untuk mendaftar seluruh lagu JKT48 yang memiliki bagian 'Kecha'. Temukan setlist teater, tonton preview Kecha di YouTube secara instan, dan kelola katalog sebagai admin.",
+  description: "ebsite interaktif terperinci untuk mendaftar seluruh lagu JKT48 yang memiliki bagian 'Kecha'. Temukan setlist teater, tonton preview Kecha di YouTube secara instan, dan kelola katalog sebagai admin.",
   keywords: ["JKT48", "Kecha", "Wota", "Teater JKT48", "Lagu Kecha JKT48", "Kamus Kecha"],
   authors: [{ name: "Kecha JKT48 Fans" }],
 };

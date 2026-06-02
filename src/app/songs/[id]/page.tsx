@@ -76,7 +76,7 @@ export default function SongDetail() {
 
   const youtubeId = getYouTubeId(song.youtube_link);
   const startSeconds = getYouTubeStartSeconds(song.youtube_link);
-  const embedUrl = youtubeId 
+  const embedUrl = youtubeId
     ? `https://www.youtube.com/embed/${youtubeId}?rel=0${startSeconds ? `&start=${startSeconds}` : ''}`
     : '';
 
@@ -162,7 +162,6 @@ export default function SongDetail() {
               </p>
               <ul className="list-disc list-inside space-y-1 text-background/70 font-medium pl-1">
                 <li>Angkat tangan setinggi dada/wajah</li>
-                <li>Condongkan badan 30 derajat ke panggung</li>
                 <li>Dorong tangan bergantian maju mundur secara dinamis</li>
                 <li>Gunakan energi penuh dan jaga sinkronisasi bersama wota lain!</li>
               </ul>
