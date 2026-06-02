@@ -93,7 +93,7 @@ export default function SongDetail() {
           className="inline-flex items-center gap-2 font-black uppercase text-xs sm:text-sm tracking-wider text-secondary hover:text-primary mb-6 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Kembali Ke Kamus</span>
+          <span>Kembali</span>
         </Link>
 
         {/* Layout Grid */}

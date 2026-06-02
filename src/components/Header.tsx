@@ -37,7 +37,7 @@ export default function Header() {
             />
           </div>
           <span className="font-extrabold text-secondary tracking-widest text-sm hidden xs:inline-block">
-            JKT48 DICTIONARY
+            JKT48 Kecha
           </span>
         </Link>
 

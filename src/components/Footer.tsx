@@ -16,7 +16,7 @@ export default function Footer() {
               />
             </div>
             <span className="font-extrabold text-background tracking-wider text-xs">
-              JKT48 DICTIONARY
+              JKT48 Kecha
             </span>
           </div>
           <p className="text-xs text-background/70 max-w-md">
