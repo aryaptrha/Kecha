@@ -65,7 +65,7 @@ export default function SongDetail() {
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-background font-bold uppercase tracking-wider text-xs border-2 border-secondary hover:bg-primary transition-all shadow-[2px_2px_0px_0px_#B71C2B] active:translate-y-0.5 active:shadow-none"
             >
               <ArrowLeft className="w-4 h-4" />
-              Kembali ke Kamus
+              Kembali ke Homepage
             </Link>
           </div>
         </main>
