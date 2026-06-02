@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #B71C2B;
+  --color-secondary: #2B2D31;
+  --color-background: #F8F6F3;
+  --color-surface: #F2EFEA;
+  --color-text: #1C1E21;
+  
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+:root {
+  --background: #F8F6F3;
+  --foreground: #1C1E21;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2EFEA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2B2D31;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B71C2B;
+}
+
+/* Flat thick borders for editorial "Untitled UI" / Neobrutalism hybrid vibe */
+.btn-flat {
+  @apply px-4 py-2.5 font-bold uppercase tracking-wider border-2 border-secondary bg-surface text-secondary hover:bg-secondary hover:text-background transition-all duration-200 cursor-pointer text-sm;
+}
+
+.btn-flat-primary {
+  @apply px-4 py-2.5 font-bold uppercase tracking-wider border-2 border-secondary bg-primary text-background hover:bg-secondary transition-all duration-200 cursor-pointer text-sm;
+}
+
+.card-flat {
+  @apply bg-surface border-2 border-secondary p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#2B2D31];
+}
+
+.input-flat {
+  @apply w-full bg-background border-2 border-secondary px-4 py-2.5 text-text focus:outline-none focus:bg-surface focus:shadow-[2px_2px_0px_0px_#B71C2B] transition-all duration-200;
+}
