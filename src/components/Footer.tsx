@@ -24,7 +24,7 @@ export default function Footer() {
             © {new Date().getFullYear()} - Mas Bro Arya.
           </p>
           <p className="text-[10px] text-background/50 mt-1">
-            Dibuat penuh semangat dengan bandutan cinta dari oshi oshiku ❤️.
+            Dibuat penuh semangat dengan bantuan cinta dari oshi oshiku ❤️.
           </p>
         </div>
       </div>

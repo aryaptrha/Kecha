@@ -209,7 +209,7 @@ export default function SongDetail() {
               )}
 
               <div className="bg-background border-2 border-secondary p-3 text-[11px] text-secondary/70 font-semibold">
-                <strong>Catatan Konten:</strong> Video di atas disematkan secara dinamis untuk edukasi wota baru. Tonton bagian solo member untuk melihat pergerakan koreografi Kecha.
+                <strong>Catatan Konten:</strong> Video di atas disematkan secara dinamis. Tonton bagian tertentu dari video untuk melihat bagian Kecha.
               </div>
             </motion.div>
           </div>
