@@ -50,7 +50,7 @@ export default function AdminLogin() {
 
       {/* Login Section */}
       <main className="flex-grow flex items-center justify-center py-16 px-4">
-        <div className="w-full max-w-md bg-surface border-4 border-secondary p-6 sm:p-8 shadow-[8px_8px_0px_0px_#2B2D31] relative">
+        <div className="w-full max-w-md bg-surface border-4 border-secondary p-6 sm:p-8 shadow-[8px_8px_0px_0px_var(--color-secondary)] relative">
           <Link
             href="/"
             className="inline-flex items-center gap-1 font-black uppercase text-xs text-secondary hover:text-primary mb-6 transition-colors"
@@ -64,10 +64,10 @@ export default function AdminLogin() {
               TERPROTEKSI
             </span>
             <h1 className="text-2xl font-black uppercase text-secondary tracking-tight">
-              MASUK SEBAGAI ADMIN
+              MASUK SEBAGAI VVOTA
             </h1>
             <p className="text-xs text-secondary/60 mt-1 font-bold">
-              Masukkan kredensial khusus untuk mengelola kamus lagu Kecha.
+              Yang masuk keisini oshinya banyak.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export default function AdminLogin() {
                   placeholder="admin@kecha.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-background border-2 border-secondary pl-11 pr-4 py-2.5 text-sm text-secondary font-semibold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_#B71C2B] transition-all"
+                  className="w-full bg-background border-2 border-secondary pl-11 pr-4 py-2.5 text-sm text-secondary font-semibold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_var(--color-primary)] transition-all"
                 />
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function AdminLogin() {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-background border-2 border-secondary pl-11 pr-4 py-2.5 text-sm text-secondary font-semibold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_#B71C2B] transition-all"
+                  className="w-full bg-background border-2 border-secondary pl-11 pr-4 py-2.5 text-sm text-secondary font-semibold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_var(--color-primary)] transition-all"
                 />
               </div>
             </div>
@@ -116,9 +116,9 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full mt-2 px-6 py-3 bg-secondary text-background font-black uppercase tracking-wider text-xs border-2 border-secondary shadow-[3px_3px_0px_0px_#B71C2B] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all text-center cursor-pointer flex items-center justify-center gap-2 disabled:opacity-55"
+              className="w-full mt-2 px-6 py-3 bg-secondary text-background font-black uppercase tracking-wider text-xs border-2 border-secondary shadow-[3px_3px_0px_0px_var(--color-primary)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all text-center cursor-pointer flex items-center justify-center gap-2 disabled:opacity-55"
             >
-              <span>{isSubmitting ? 'Verifikasi...' : 'Masuk Dashboard'}</span>
+              <span>{isSubmitting ? 'Verifikasi...' : 'Masuk'}</span>
               {!isSubmitting && <ArrowRight className="w-4 h-4" />}
             </button>
           </form>

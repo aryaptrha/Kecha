@@ -52,7 +52,7 @@ export default function SongDetail() {
       <div className="flex flex-col min-h-screen bg-background text-text">
         <Header />
         <main className="flex-grow max-w-2xl mx-auto w-full py-20 px-4 text-center">
-          <div className="bg-primary/10 border-4 border-primary p-6 text-center shadow-[4px_4px_0px_0px_#2B2D31] max-w-md mx-auto">
+          <div className="bg-primary/10 border-4 border-primary p-6 text-center shadow-[4px_4px_0px_0px_var(--color-secondary)] max-w-md mx-auto">
             <AlertCircle className="w-12 h-12 text-primary mx-auto mb-3" />
             <h1 className="text-xl font-black text-secondary uppercase mb-2">
               Lagu Tidak Ditemukan!
@@ -62,7 +62,7 @@ export default function SongDetail() {
             </p>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-background font-bold uppercase tracking-wider text-xs border-2 border-secondary hover:bg-primary transition-all shadow-[2px_2px_0px_0px_#B71C2B] active:translate-y-0.5 active:shadow-none"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-background font-bold uppercase tracking-wider text-xs border-2 border-secondary hover:bg-primary transition-all shadow-[2px_2px_0px_0px_var(--color-primary)] active:translate-y-0.5 active:shadow-none"
             >
               <ArrowLeft className="w-4 h-4" />
               Kembali ke Homepage
@@ -103,10 +103,10 @@ export default function SongDetail() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-surface border-4 border-secondary p-6 sm:p-8 shadow-[6px_6px_0px_0px_#2B2D31] relative"
+              className="bg-surface border-4 border-secondary p-6 sm:p-8 shadow-[6px_6px_0px_0px_var(--color-secondary)] relative"
             >
               {song.is_viral && (
-                <span className="absolute top-4 right-4 bg-primary text-background text-[10px] font-black uppercase px-2.5 py-1 border border-secondary shadow-[2px_2px_0px_0px_#2B2D31]">
+                <span className="absolute top-4 right-4 bg-primary text-background text-[10px] font-black uppercase px-2.5 py-1 border border-secondary shadow-[2px_2px_0px_0px_var(--color-secondary)]">
                   VIRAL / POPULER
                 </span>
               )}
@@ -140,7 +140,7 @@ export default function SongDetail() {
                   </span>
                   <div className="flex items-center gap-2 text-secondary font-extrabold uppercase text-sm sm:text-base">
                     <Info className="w-4.5 h-4.5 text-secondary flex-shrink-0" />
-                    <span>{song.song_type === 'Group Song' ? 'Grup Penuh' : 'Unit Pilihan (Unit Song)'}</span>
+                    <span>{song.song_type === 'Group Song' ? 'Group Song' : 'Unit Song'}</span>
                   </div>
                 </div>
               </div>
@@ -151,11 +151,11 @@ export default function SongDetail() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-secondary text-background border-4 border-secondary p-5 shadow-[4px_4px_0px_0px_#B71C2B] text-xs space-y-3"
+              className="bg-secondary text-background border-4 border-secondary p-5 shadow-[4px_4px_0px_0px_var(--color-primary)] text-xs space-y-3"
             >
               <h3 className="font-black text-sm uppercase tracking-wide flex items-center gap-2">
                 <Video className="w-4 h-4 text-primary" />
-                Panduan Sorak Kecha JKT48
+                JKT48 Kecha Guide
               </h3>
               <p className="text-background/80 leading-relaxed">
                 Di teater, part Kecha biasanya dilakukan saat ada bagian melodi panjang atau member menyanyikan bait solo lambat.
@@ -174,7 +174,7 @@ export default function SongDetail() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-              className="bg-surface border-4 border-secondary p-4 sm:p-6 shadow-[8px_8px_0px_0px_#2B2D31] flex flex-col space-y-4"
+              className="bg-surface border-4 border-secondary p-4 sm:p-6 shadow-[8px_8px_0px_0px_var(--color-secondary)] flex flex-col space-y-4"
             >
               <div className="flex items-center justify-between border-b-2 border-secondary pb-3">
                 <h2 className="font-black text-sm sm:text-base text-secondary uppercase tracking-tight flex items-center gap-2">
@@ -187,7 +187,7 @@ export default function SongDetail() {
               </div>
 
               {youtubeId ? (
-                <div className="border-4 border-secondary bg-secondary aspect-video relative overflow-hidden shadow-[4px_4px_0px_0px_#2B2D31]">
+                <div className="border-4 border-secondary bg-secondary aspect-video relative overflow-hidden shadow-[4px_4px_0px_0px_var(--color-secondary)]">
                   <iframe
                     className="w-full h-full"
                     src={embedUrl}

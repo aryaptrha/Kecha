@@ -5,16 +5,34 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { authService } from '@/utils/auth';
-import { LogOut, LayoutDashboard, BookOpen, Sparkles } from 'lucide-react';
-import logoImage from '@/app/icon.jpg';
+import { LogOut, LayoutDashboard, BookOpen, Sparkles, Sun, Moon } from 'lucide-react';
+import logoLandscape from '@/app/JKT48_FIGHT_Logo_(2026).png';
 
 export default function Header() {
   const router = useRouter();
   const [isAdmin, setIsAdmin] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
     setIsAdmin(authService.isAuthenticated());
+    const currentTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    if (currentTheme) {
+      setTheme(currentTheme);
+    } else {
+      setTheme('light');
+    }
   }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+    if (nextTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   const handleLogout = async () => {
     await authService.logout();
@@ -26,19 +44,15 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-surface border-b-4 border-secondary py-4 px-4 sm:px-6 md:px-8 transition-colors">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-8 h-8 sm:w-10 sm:h-10 border-2 border-secondary shadow-[2px_2px_0px_0px_#2B2D31] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all duration-150 overflow-hidden bg-primary">
-            <Image
-              src={logoImage}
-              alt="Kecha Logo"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <span className="font-extrabold text-secondary tracking-widest text-sm hidden xs:inline-block">
-            JKT48 Kecha
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src={logoLandscape}
+            alt="Kecha Logo"
+            width={128}
+            height={72}
+            className="w-24 h-auto sm:w-32 aspect-video object-contain"
+            priority
+          />
         </Link>
 
         {/* NAVIGATION */}
@@ -51,6 +65,16 @@ export default function Header() {
             <span className="hidden sm:inline">Kamus</span>
           </Link>
 
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center p-2 border-2 border-secondary bg-surface text-secondary hover:bg-secondary hover:text-background transition-all duration-200 cursor-pointer shadow-[2px_2px_0px_0px_var(--color-secondary)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            aria-label="Toggle Theme"
+            title={theme === 'light' ? 'Aktifkan Mode Gelap' : 'Aktifkan Mode Terang'}
+          >
+            {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+          </button>
+
           {isAdmin ? (
             <>
               <Link
@@ -62,7 +86,7 @@ export default function Header() {
               </Link>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-1.5 px-3 py-1.5 font-bold uppercase tracking-wider text-xs border-2 border-secondary bg-primary text-background hover:bg-secondary hover:text-background transition-all duration-200 cursor-pointer shadow-[2px_2px_0px_0px_#2B2D31] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                className="flex items-center gap-1.5 px-3 py-1.5 font-bold uppercase tracking-wider text-xs border-2 border-secondary bg-primary text-background hover:bg-secondary hover:text-background transition-all duration-200 cursor-pointer shadow-[2px_2px_0px_0px_var(--color-secondary)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
                 <LogOut className="w-3.5 h-3.5" />
                 <span>Keluar</span>

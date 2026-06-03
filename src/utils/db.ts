@@ -152,6 +152,34 @@ export const dbService = {
     return song || null;
   },
 
+  async enforceViralLimitInSupabase(excludeId?: string): Promise<void> {
+    if (!isSupabaseConfigured || !supabase) return;
+
+    // Get all current viral songs
+    const { data: viralSongs, error } = await supabase
+      .from('songs')
+      .select('id, title, created_at, is_viral')
+      .eq('is_viral', true);
+
+    if (error || !viralSongs) return;
+
+    const targetViralSongs = excludeId
+      ? viralSongs.filter(s => s.id !== excludeId)
+      : viralSongs;
+
+    if (targetViralSongs.length >= 3) {
+      // Sort by created_at ascending (oldest first)
+      const sorted = [...targetViralSongs].sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+      const oldest = sorted[0];
+
+      // Update oldest to false
+      await supabase
+        .from('songs')
+        .update({ is_viral: false })
+        .eq('id', oldest.id);
+    }
+  },
+
   async addSong(songData: Omit<Song, 'id' | 'created_at'>): Promise<Song> {
     const newSong: Song = {
       ...songData,
@@ -160,6 +188,9 @@ export const dbService = {
     };
 
     if (isSupabaseConfigured && supabase) {
+      if (songData.is_viral) {
+        await this.enforceViralLimitInSupabase();
+      }
       const { data, error } = await supabase
         .from('songs')
         .insert([songData])
@@ -194,6 +225,11 @@ export const dbService = {
 
   async updateSong(id: string, songData: Partial<Omit<Song, 'id' | 'created_at'>>): Promise<Song | null> {
     if (isSupabaseConfigured && supabase) {
+      const currentSong = await this.getSongById(id);
+      const isBecomingViral = songData.is_viral && (!currentSong || !currentSong.is_viral);
+      if (isBecomingViral) {
+        await this.enforceViralLimitInSupabase(id);
+      }
       const { data, error } = await supabase
         .from('songs')
         .update(songData)
@@ -247,8 +283,7 @@ export const dbService = {
   },
 
   async toggleViral(id: string): Promise<Song | null> {
-    const songs = getLocalSongs();
-    const song = songs.find(s => s.id === id);
+    const song = await this.getSongById(id);
     if (!song) return null;
     
     const targetState = !song.is_viral;

@@ -1,25 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #B71C2B;
-  --color-secondary: #2B2D31;
-  --color-background: #F8F6F3;
-  --color-surface: #F2EFEA;
-  --color-text: #1C1E21;
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
   
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
 
 :root {
-  --background: #F8F6F3;
-  --foreground: #1C1E21;
+  --color-primary: #B71C2B;
+  --color-secondary: #2B2D31;
+  --color-background: #F8F6F3;
+  --color-surface: #F2EFEA;
+  --color-text: #1C1E21;
+
+  --background: var(--color-background);
+  --foreground: var(--color-text);
+}
+
+.dark {
+  --color-primary: #FF4D4D;
+  --color-secondary: #E2E8F0;
+  --color-background: #121212;
+  --color-surface: #1E1E1E;
+  --color-text: #F8F6F3;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 /* Custom Scrollbar for premium feel */
@@ -29,16 +44,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F2EFEA;
+  background: var(--color-surface);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2B2D31;
+  background: var(--color-secondary);
   border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B71C2B;
+  background: var(--color-primary);
 }
 
 /* Flat thick borders for editorial "Untitled UI" / Neobrutalism hybrid vibe */
@@ -51,9 +66,9 @@ body {
 }
 
 .card-flat {
-  @apply bg-surface border-2 border-secondary p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#2B2D31];
+  @apply bg-surface border-2 border-secondary p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_var(--color-secondary)];
 }
 
 .input-flat {
-  @apply w-full bg-background border-2 border-secondary px-4 py-2.5 text-text focus:outline-none focus:bg-surface focus:shadow-[2px_2px_0px_0px_#B71C2B] transition-all duration-200;
+  @apply w-full bg-background border-2 border-secondary px-4 py-2.5 text-text focus:outline-none focus:bg-surface focus:shadow-[2px_2px_0px_0px_var(--color-primary)] transition-all duration-200;
 }

@@ -60,7 +60,7 @@ export default function KechaPopup() {
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.9, y: 20, opacity: 0 }}
             transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            className="relative w-full max-w-2xl bg-surface border-4 border-secondary shadow-[8px_8px_0px_0px_#2B2D31] p-6 sm:p-8 overflow-y-auto max-h-[90vh] z-10"
+            className="relative w-full max-w-2xl bg-surface border-4 border-secondary shadow-[8px_8px_0px_0px_var(--color-secondary)] p-6 sm:p-8 overflow-y-auto max-h-[90vh] z-10"
           >
             {/* Close Button */}
             <button
@@ -77,7 +77,7 @@ export default function KechaPopup() {
               </span>
               <div>
                 <span className="text-[10px] font-black uppercase tracking-widest text-primary">
-                  EDUKASI FANS JKT48
+                  JKT48
                 </span>
                 <h2 className="text-xl sm:text-2xl font-black text-secondary uppercase tracking-tight">
                   Apa itu &quot;Kecha&quot;?
@@ -96,7 +96,7 @@ export default function KechaPopup() {
             </div>
 
             {/* Video Player */}
-            <div className="border-4 border-secondary mb-6 bg-secondary relative overflow-hidden aspect-video shadow-[4px_4px_0px_0px_#2B2D31]">
+            <div className="border-4 border-secondary mb-6 bg-secondary relative overflow-hidden aspect-video shadow-[4px_4px_0px_0px_var(--color-secondary)]">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/HaBxuN0ty5o"
@@ -130,7 +130,7 @@ export default function KechaPopup() {
 
               <button
                 onClick={handleClose}
-                className="w-full sm:w-auto px-6 py-2.5 bg-primary border-2 border-secondary text-background font-bold uppercase tracking-wider text-xs shadow-[3px_3px_0px_0px_#2B2D31] hover:bg-secondary transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 bg-primary border-2 border-secondary text-background font-bold uppercase tracking-wider text-xs shadow-[3px_3px_0px_0px_var(--color-secondary)] hover:bg-secondary transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none cursor-pointer"
               >
                 Mulai Menjelajah!
               </button>

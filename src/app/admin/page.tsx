@@ -278,7 +278,7 @@ export default function AdminDashboard() {
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              className={`fixed top-4 right-4 z-50 p-4 border-4 border-secondary shadow-[4px_4px_0px_0px_#2B2D31] max-w-md ${
+              className={`fixed top-4 right-4 z-50 p-4 border-4 border-secondary shadow-[4px_4px_0px_0px_var(--color-secondary)] max-w-md ${
                 notification.type === 'success' 
                   ? 'bg-secondary text-background' 
                   : notification.type === 'info' 
@@ -299,7 +299,7 @@ export default function AdminDashboard() {
         </AnimatePresence>
 
         {/* Dashboard Header Bar */}
-        <div className="bg-surface border-4 border-secondary p-6 sm:p-8 shadow-[6px_6px_0px_0px_#2B2D31] flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="bg-surface border-4 border-secondary p-6 sm:p-8 shadow-[6px_6px_0px_0px_var(--color-secondary)] flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <span className="bg-primary text-background text-[10px] font-black uppercase px-2 py-0.5 border border-secondary tracking-widest inline-block mb-2 animate-pulse">
               ADMIN CONTROL CENTER
@@ -340,14 +340,14 @@ export default function AdminDashboard() {
               placeholder="Cari lagu di admin..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-background border-2 border-secondary pl-11 pr-4 py-2.5 text-xs text-secondary font-semibold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_#B71C2B] transition-all"
+              className="w-full bg-background border-2 border-secondary pl-11 pr-4 py-2.5 text-xs text-secondary font-semibold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_var(--color-primary)] transition-all"
             />
           </div>
 
           {/* Add Song Button */}
           <button
             onClick={handleOpenAddModal}
-            className="flex items-center justify-center gap-2 px-5 py-2.5 bg-primary border-2 border-secondary text-background font-black uppercase tracking-wider text-xs shadow-[3px_3px_0px_0px_#2B2D31] hover:bg-secondary hover:text-background active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer flex-shrink-0"
+            className="flex items-center justify-center gap-2 px-5 py-2.5 bg-primary border-2 border-secondary text-background font-black uppercase tracking-wider text-xs shadow-[3px_3px_0px_0px_var(--color-secondary)] hover:bg-secondary hover:text-background active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer flex-shrink-0"
           >
             <Plus className="w-4 h-4 stroke-[3px]" />
             <span>Tambah Lagu Baru</span>
@@ -355,7 +355,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* ADMIN DATABASE TABLE LIST */}
-        <div className="border-4 border-secondary bg-surface overflow-x-auto shadow-[6px_6px_0px_0px_#2B2D31]">
+        <div className="border-4 border-secondary bg-surface overflow-x-auto shadow-[6px_6px_0px_0px_var(--color-secondary)]">
           {isLoading ? (
             <div className="py-20 flex flex-col items-center justify-center">
               <div className="w-10 h-10 border-4 border-secondary border-t-primary rounded-full animate-spin mb-3" />
@@ -425,7 +425,7 @@ export default function AdminDashboard() {
                           onClick={() => handleToggleViralDirect(song)}
                           className={`flex items-center justify-between gap-1.5 px-3 py-1.5 font-black uppercase text-[10px] border-2 cursor-pointer transition-all ${
                             song.is_viral
-                              ? 'bg-primary text-background border-secondary shadow-[2px_2px_0px_0px_#2B2D31]'
+                              ? 'bg-primary text-background border-secondary shadow-[2px_2px_0px_0px_var(--color-secondary)]'
                               : 'bg-background text-secondary/50 border-secondary/40 hover:border-secondary hover:text-secondary'
                           }`}
                         >
@@ -480,7 +480,7 @@ export default function AdminDashboard() {
               initial={{ scale: 0.9, y: 15, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 15, opacity: 0 }}
-              className="relative w-full max-w-lg bg-surface border-4 border-secondary shadow-[8px_8px_0px_0px_#2B2D31] p-6 overflow-y-auto max-h-[90vh] z-10"
+              className="relative w-full max-w-lg bg-surface border-4 border-secondary shadow-[8px_8px_0px_0px_var(--color-secondary)] p-6 overflow-y-auto max-h-[90vh] z-10"
             >
               {/* Close Modal */}
               <button
@@ -514,7 +514,7 @@ export default function AdminDashboard() {
                     placeholder="Contoh: Rapsodi"
                     value={formTitle}
                     onChange={(e) => setFormTitle(e.target.value)}
-                    className="w-full bg-background border-2 border-secondary px-3.5 py-2 text-sm text-secondary font-bold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_#B71C2B] transition-all"
+                    className="w-full bg-background border-2 border-secondary px-3.5 py-2 text-sm text-secondary font-bold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_var(--color-primary)] transition-all"
                   />
                 </div>
 
@@ -552,7 +552,7 @@ export default function AdminDashboard() {
                     placeholder="Contoh: Pajama Drive / Original Single"
                     value={formSetlist}
                     onChange={(e) => setFormSetlist(e.target.value)}
-                    className="w-full bg-background border-2 border-secondary px-3.5 py-2 text-sm text-secondary font-bold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_#B71C2B] transition-all"
+                    className="w-full bg-background border-2 border-secondary px-3.5 py-2 text-sm text-secondary font-bold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_var(--color-primary)] transition-all"
                   />
                 </div>
 
@@ -567,7 +567,7 @@ export default function AdminDashboard() {
                     placeholder="Contoh: https://www.youtube.com/watch?v=F3G8D2u4dZg"
                     value={formYoutubeLink}
                     onChange={(e) => setFormYoutubeLink(e.target.value)}
-                    className="w-full bg-background border-2 border-secondary px-3.5 py-2 text-sm text-secondary font-bold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_#B71C2B] transition-all"
+                    className="w-full bg-background border-2 border-secondary px-3.5 py-2 text-sm text-secondary font-bold focus:outline-none focus:bg-background focus:shadow-[2px_2px_0px_0px_var(--color-primary)] transition-all"
                   />
                 </div>
 
@@ -602,7 +602,7 @@ export default function AdminDashboard() {
                   </button>
                   <button
                     type="submit"
-                    className="w-2/3 px-4 py-2.5 bg-primary border-2 border-secondary text-background font-black uppercase tracking-wider text-xs shadow-[2px_2px_0px_0px_#2B2D31] hover:bg-secondary transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none cursor-pointer text-center"
+                    className="w-2/3 px-4 py-2.5 bg-primary border-2 border-secondary text-background font-black uppercase tracking-wider text-xs shadow-[2px_2px_0px_0px_var(--color-secondary)] hover:bg-secondary transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none cursor-pointer text-center"
                   >
                     {modalMode === 'add' ? 'Daftarkan Lagu' : 'Simpan Perubahan'}
                   </button>
